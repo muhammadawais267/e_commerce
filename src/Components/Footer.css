@@ -1,0 +1,51 @@
+.footer{
+    display: flex;
+    justify-content: space-evenly;
+    /* margin-top: 20px; */
+    border-top: 2px solid lightgray;
+    padding: 20px;
+    margin-top: 40px;
+    height: 300px;
+}
+.footer .find{
+    width: 20%;
+}
+.footer .about-us{
+    width: 20%;
+    
+}
+.footer .about-us h3{
+    margin-left: 25px;
+}
+.footer .infos{
+    width: 20%;
+}
+.footer .infos h3{
+    margin-left: 25px;
+}
+.footer .products{
+    width: 20%;
+}
+.footer .products h3{
+    margin-left: 25px;
+}
+.footer .others{
+    width: 20%;
+}
+.footer .others h3{
+    margin-left: 25px;
+}
+.footer ul li{
+    list-style: none;
+    text-align: left;
+}
+.footer .find ul{
+    display: flex;
+    /* margin-right: 20px; */
+}
+.footer .find h3{
+    margin-left: 25px;
+}
+.footer .find ul li{
+    margin-right: 10px;
+}
