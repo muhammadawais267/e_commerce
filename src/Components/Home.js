@@ -56,8 +56,10 @@ const Home = () => {
           <img src={Watch} alt=""></img>
         </div>
       </Container>
+<Container>
 
       <h1>Best Sellers</h1>
+</Container>
       <Container className="container">
         <Row className="row-img">
           {stockData.map((data, key) => {

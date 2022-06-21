@@ -141,4 +141,16 @@
 .product-desc .costimize-btn:hover{
     background-color: #ff9858;
     color: #fff;
+    border: none;
+}
+.product-char{
+    color: rgb(160, 160, 160);
+}
+.row-img .same-product{
+    background-color: #f8f8f8;
+    width: 200px;
+    height: 300px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-right: 20px;
 }

@@ -1,4 +1,4 @@
-import Case from "../src/assests/images/CasePic.jpg";
+// import Case from "../src/assests/images/CasePic.jpg";
 
 import Cover from "../src/assests/images/Mcover1.png";
 import Mcover from "../src/assests/images/Mcover.png";
