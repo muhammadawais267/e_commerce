@@ -17,16 +17,24 @@ import Mcase from "../assests/images/CasePic.jpg";
 import Watch from "../assests/images/watch.png";
 import { Link } from "react-router-dom";
 
-import { Data } from "../data";
+// import { Data } from "../data";
 import "./Home.css";
+import { useSelector } from "react-redux";
 
 const Home = () => {
-  console.log(Data);
-  const stockData = Data.slice(0, 4);
-  const imgData = Data.slice(4, 8);
-  const catdata = Data.slice(8, 12);
-  const catData1 = Data.slice(12, 16);
-  console.log(stockData);
+  const products =useSelector((state)=>state.product.products);
+  // const {id, price, del ,img,description} =products;
+  const stockData = products.slice(0,4)
+  const imgData = products.slice(4,8)
+  const catdata =  products.slice(8,12)
+  const catData1 = products.slice(12,16)
+  // console.log(products)
+  // console.log(Data);
+  // const stockData = Data.slice(0, 4);
+  // const imgData = Data.slice(4, 8);
+  // const catdata = Data.slice(8, 12);
+  // const catData1 = Data.slice(12, 16);
+  // console.log(stockData);
 
   return (
     <div>
@@ -46,7 +54,7 @@ const Home = () => {
       </Container>
       <Container className="cases">
         <div className="custom-cases">
-          <h2>Custom Case</h2>
+          <h2>Custom Cases</h2>
           <img src={Case2} alt="" />
         </div>
 
@@ -81,12 +89,33 @@ const Home = () => {
         
         </Row>
       </Container>
+      <Container className="container">
+        <Row className="row-img">
+          {imgData.map((data, key) => {
+            return (
+              <Col lg={3} md={6} sm={12}>
+                <Link to={`/product/${data.id}`}>
+                  <img className="seller-img" src={data.img} alt=""></img>
+                </Link>
+
+                <p className="text-precentage">-30%</p>
+                <div className="price">
+                  <h3>{data.price}</h3>
+                  <del>{data.del}</del>
+                </div>
+                <p className="cat-name">{data.description}</p>
+              </Col>
+            );
+          })}
+        
+        </Row>
+      </Container>
       <Container>
         <Row className="row-img">
           {imgData.map((data, key) => {
             return (
               <Col lg={3} md={6} sm={12}>
-                <Link to="/addtocart">
+                 <Link to={`/product/${data.id}`}>
                   <img className="seller-img" src={data.img} alt=""></img>
                 </Link>
 
@@ -122,7 +151,7 @@ const Home = () => {
           {catdata.map((data, key) => {
             return (
               <Col lg={3} md={6} sm={12}>
-                <Link to="/addtocart">
+                 <Link to={`/product/${data.id}`}>
                   <img className="seller-img" src={data.img} alt=""></img>
                 </Link>
 
@@ -144,7 +173,7 @@ const Home = () => {
           {catData1.map((data, key) => {
             return (
               <Col lg={3} md={6} sm={12}>
-                <Link to="/addtocart">
+                 <Link to={`/product/${data.id}`}>
                   <img className="seller-img" src={data.img} alt=""></img>
                 </Link>
 

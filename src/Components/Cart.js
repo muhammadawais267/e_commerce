@@ -1,9 +1,29 @@
 import React, { useState } from 'react'
-import { Container , Row, Col} from 'react-bootstrap'
-import { productDetail } from '../data'
+import { Container , Row,  Table} from 'react-bootstrap'
+import { Delete } from '@mui/icons-material'
+// import { productDetail } from '../data'
+import { useSelector, useDispatch } from 'react-redux'
+import { delData} from '../redux/Actions/product'
 import './Cart.css'
 
+
+
 const Cart = () => {
+  const getData = useSelector((state)=>state.product.additems);
+  const dispatch = useDispatch();
+  
+
+  
+  
+  // const products = useSelector((state)=>state.product.products);
+  // console.log("Products", products);
+  
+  
+  const del = (id) => {
+    dispatch(delData(id));
+  };
+
+  // console.log("img", img, "description",description, "price", price)
   const [quantity, setQuantity] = useState(1);
   const increaseQuantity = ()=>{
     if(quantity>=10)
@@ -19,11 +39,11 @@ const Cart = () => {
   }
 
   
-const [price, setPrice] = useState(0);
-let totalAmount = ()=>{
-  const amount= price+quantity;
-  setPrice(amount)
-}
+// const [price, setPrice] = useState(0);
+// let totalAmount = ()=>{
+//   const amount= price+quantity;
+//   setPrice(amount)
+// }
   
   return (
     <div>
@@ -32,58 +52,54 @@ let totalAmount = ()=>{
         <Container >
         <Row style={{width:'100%', marginLeft:'10px'}}>
     
-        <h1>Shopping Cart</h1>
-          <Col lg = {2} md = {3} sm = {6}>Item</Col>
-          <Col lg = {2} md = {3} sm = {6}>Description</Col>
-          <Col lg = {2} md = {3} sm = {6}>Price</Col>
-          <Col lg = {2} md = {3} sm = {6}>Quantity</Col>
-          <Col lg = {2} md = {3} sm = {6}>Subtotal</Col>
+        <Table>
+          <thead>
+            {/* <th></th> */}
+            <th>Item</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>quantity</th>
+            <th>Subtotal</th>
+            
+          </thead>
+          <tbody>
+            {
+              getData.map((e)=>{
+                return(
+                  <>
+                  <tr>
+                    <td>
+                      <img src={e.img} alt = '' style={{width:'5rem', height:'5rem'}}></img>
+
+                    </td>
+                    <td>
+                      <p>{e.description}</p>
+                    </td>
+                    <td><p>{e.price}</p></td>
+                    <td><p>{e.quantity}</p>
+                    </td>
+                    <td>
+                      <p>300$</p>
+
+                    </td>
+                    <td style={{color:'red'}} >
+
+                    <Delete 
+                    onClick = {()=>del(e.id)}/>
+                    </td>
+                    {/* <td><p>{e.price}</p></td> */}
+                  </tr>
+                  </>
+                )
+              })
+            }
+          </tbody>
+        </Table>
         
   
         </Row>
           </Container>
-          <Container>
-
-        <Row style = {{width:"100%"}}>
-        <Col lg = {2} md = {3} sm = {6}>
-          {productDetail.map((data,key)=>{
-            return(
-              <div>
-                <img className='product-img' src={data.img} alt= ''></img>
-              </div>
-            )
-          })}
-        </Col>
-        <Col lg = {2} md = {3} sm = {6}>
-        {productDetail.map((data,key)=>{
-            return(
-              <div>
-                <p>{data.description}</p>
-              </div>
-            )
-          })}
-        </Col>
-        <Col lg = {2} md = {3} sm = {6}>
-        {productDetail.map((data,key)=>{
-            return(
-              <div>
-                <h4>{data.price}</h4>
-              </div>
-            )
-          })}
-        </Col>
-        <Col className='quantity' lg = {2} md = {3} sm = {6}>
-          <button className='decrease-qty' onClick={decreaseQuantity} >-</button>
-          <input type = 'number' value={quantity}></input>
-          <button className='increase-qty' onClick={increaseQuantity}>+</button>
-        </Col>
-        <Col lg = {2} md = {3} sm = {6}>
-          <p>{totalAmount}</p>
-        </Col>
-
-
-        </Row>
-          </Container>
+          
       </div>
   )
 }

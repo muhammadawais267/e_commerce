@@ -1,12 +1,15 @@
 import React from "react";
 import { Container, Button, Col, Row, Dropdown } from "react-bootstrap";
 import Mcase from "../assests/images/Apple.jpg";
-import { Data } from "../data";
+// import { Data } from "../data";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 import "./Home.css";
 
 const Apple = () => {
-  const stockData = Data.slice(0, 3);
+  const products =useSelector((state)=>state.product.products);
+  
+  const stockData = products.slice(0, 3);
 
   return (
     <div>

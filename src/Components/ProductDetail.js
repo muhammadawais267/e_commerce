@@ -1,7 +1,7 @@
 import React from 'react'
 import { Container, Row, Col, Dropdown, Button } from 'react-bootstrap';
 import { useParams } from 'react-router-dom'
-import { productDetail, Data } from '../data';
+// import { productDetail, Data } from '../data';
 // import Case from '../assests/images/Case13.png'
 // import Case1 from '../assests/images/Case12.png'
 // import Case2 from '../assests/images/Case12.png'
@@ -9,34 +9,34 @@ import { productDetail, Data } from '../data';
 // import Case4 from '../assests/images/Case5.png'
 import ReactImageGallery from 'react-image-gallery';
 import { Link } from 'react-router-dom';
+import { useSelector , useDispatch} from 'react-redux';
+import {ADD} from '../redux/Actions/product'
+
 
 import './Detail.css'
 
 
+
 const ProductDetail = () => {
-  // const stockData = Data.slice(0, 5);
-  // const imgData = Data.slice(5, 10);
-  // const catdata = Data.slice(8, 12);
-  const catData1 = Data.slice(10, 16);
-    const images = [{
-      original:'/assests/images/Case13.png',
-        thumbnail:'/assests/images/Case13.png'
-    },
-    {
-      original:'/assests/images/Case13.png',
-        thumbnail:'/assests/images/Case13.png'
-    },
-    {
-      original:'/assests/images/Case13.png',
-        thumbnail:'/assests/images/Case13.png'
-    }
-]
-    const ImageData = productDetail.slice(0,1)
-    // const images = [Case, Case1,Case2,Case3];
-    console.log(images)
-    let params = useParams();
-    const {name} = params
-    console.log(name)
+  
+  const dispatch = useDispatch();
+  const send =(e)=>{
+   dispatch(ADD(e))
+  }
+  const products= useSelector((state)=>state.product.products);
+  const productsDetail= useSelector((state)=>state.product.productDetails);
+  // const getData = useSelector((state)=>state.product.additems)
+  const {id} = useParams();
+console.log("id==>>", typeof(id))
+console.log("id=sdjbsd=>>", products.map(product => typeof(product.id)))
+let product = products.filter(product => product.id === id)
+console.log("producta", product)
+  // console.log(useParams)
+ 
+  const catData1 = products.slice(10, 16);
+  const ImageData = productsDetail.slice(0,1)
+    
+   
   return (
     <div>
          <Container >
@@ -48,7 +48,7 @@ const ProductDetail = () => {
                     showPlayButton = {false} 
                     showFullscreenButton = {false}
                     showBullets = {false}
-                    items={images}/>
+                    items={product[0].thumbnails}/>
                     {/* <img className='cat-img' src={images} alt = ""></img> */}
 
                 </Col>
@@ -56,12 +56,11 @@ const ProductDetail = () => {
 
                 
                 <Col className='product-desc' lg= {6} md= {6 } sm= {12}>
-                    {ImageData.map((data, key)=>{
-                        return(
+                   
                             <div>
                             <div className="price">
-                  <h3>{data.price}</h3>
-                  <del>{data.del}</del>
+                  <h3>{product[0].price}</h3>
+                  <del>{product[0].del}</del>
                   
                 </div>
                   <p style={{color:'lightgray'}}>free shipping</p>
@@ -102,13 +101,14 @@ const ProductDetail = () => {
                     <div></div>
                     <div></div>
                   </div>
-                    <div ><Link to='/cart'><Button className='add-btn'>Add to Cart</Button></Link></div>
+                  
+                       
+                       <div ><Button onClick={()=>send(product[0])} className='add-btn'>Add to Cart</Button></div>
+                    
                     <div ><Button className='costimize-btn'>Costomize</Button></div>
                     </div>
                 
-                )
                 
-                })}
                   </Col>
 
             </Row>
@@ -116,13 +116,11 @@ const ProductDetail = () => {
       <Container>
 <Row>
     <h1>Description</h1>
-    {ImageData.map((data,key)=>{
-        return(
+    
             <div>
-                <p>{data.description}</p>
+                <p>{product[0].description}</p>
             </div>
-        )
-    })}
+       
 </Row>
 
       </Container>
@@ -153,7 +151,7 @@ const ProductDetail = () => {
           {catData1.map((data, key) => {
             return (
               <Col lg={2} md={3} sm={6}>
-                <Link to="/addtocart">
+                <Link to="/cart">
                   <img className="same-product" src={data.img} alt=""></img>
                 </Link>
 
@@ -177,7 +175,7 @@ const ProductDetail = () => {
           {catData1.map((data, key) => {
             return (
               <Col lg={2} md={3} sm={6}>
-                <Link to="/addtocart">
+                <Link to="/cart">
                   <img className="same-product" src={data.img} alt=""></img>
                 </Link>
 

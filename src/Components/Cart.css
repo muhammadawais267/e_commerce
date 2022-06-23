@@ -1,7 +1,9 @@
-.product-img{
+.product-img1{
     height: 160px;
     margin-right: 20px;
     width: 100px;
+    background-color: #f8f8f8;
+    border-radius: 5px;
 }
 
 .quantity{

@@ -6,14 +6,12 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter } from 'react-router-dom';
-<<<<<<< Updated upstream
-import {Provider} from 'react-redux'
+//  Updated upstream
+
 import store from './redux/store'
-=======
-import store from './redux/store';
-import { configureStore } from '@reduxjs/toolkit';
-import reducers from './redux/reducres';
->>>>>>> Stashed changes
+
+
+// import reducers from './redux/reducres';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
