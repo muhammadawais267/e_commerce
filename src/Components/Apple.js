@@ -1,7 +1,6 @@
 import React from "react";
 import { Container, Button, Col, Row, Dropdown } from "react-bootstrap";
 import Mcase from "../assests/images/Apple.jpg";
-// import { Data } from "../data";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import "./Home.css";
@@ -189,7 +188,7 @@ const Apple = () => {
           {stockData.map((data, key) => {
             return (
               <Col lg={3} md={6} sm={12}>
-                <Link to="/addtocart">
+                <Link to={`/product/${data.id}`}>
                   <img className="seller-img-cat" src={data.img} alt=""></img>
                 </Link>
 
@@ -213,7 +212,7 @@ const Apple = () => {
           {stockData.map((data, key) => {
             return (
               <Col lg={3} md={6} sm={12}>
-                <Link to="/addtocart">
+                <Link to={`/product/${data.id}`}>
                   <img className="seller-img-cat" src={data.img} alt=""></img>
                 </Link>
 
@@ -237,7 +236,7 @@ const Apple = () => {
           {stockData.map((data, key) => {
             return (
               <Col lg={3} md={6} sm={12}>
-                <Link to="/addtocart">
+                <Link to={`/product/${data.id}`}>
                   <img className="seller-img-cat" src={data.img} alt=""></img>
                 </Link>
 
@@ -261,7 +260,7 @@ const Apple = () => {
           {stockData.map((data, key) => {
             return (
               <Col lg={3} md={6} sm={12}>
-                <Link to="/addtocart">
+                <Link to={`/product/${data.id}`}>
                   <img className="seller-img-cat" src={data.img} alt=""></img>
                 </Link>
 

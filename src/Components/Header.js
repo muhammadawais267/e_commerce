@@ -1,8 +1,9 @@
+/* eslint-disable array-callback-return */
 import React, { useState } from "react";
 // import Button from 'react-bootstrap/Button';
-import { Badge, Menu, } from "@mui/material";
-// import { Delete } from "@mui/icons-material";
-import { Container, Table, } from "react-bootstrap";
+import { Badge, Menu } from "@mui/material";
+import { Delete } from "@mui/icons-material";
+import { Container, Table } from "react-bootstrap";
 import {
   Search,
   PermIdentity,
@@ -15,32 +16,35 @@ import "./Home.css";
 import Logo from "../assests/images/logo1.png";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { delData } from "../redux/Actions/product";
+import { DLT } from "../redux/Actions/product";
 import { useEffect } from "react";
 
 const Header = () => {
   const getData = useSelector((state) => state.product.additems);
 
   const [price, setPrice] = useState(0);
-  console.log("Price", price)
+  console.log("Price", price);
 
   const dispatch = useDispatch();
+
+  //DELETE DATA
   const del = (id) => {
-    dispatch(delData(id));
+    dispatch(DLT(id));
   };
 
-  const total = ()=>{
+  // Total Cost
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const total = () => {
     let price = 0;
-    getData.map((ele,k)=>{
-        price = ele.price  + price
+    getData.map((ele, k) => {
+      price = ele.price + price;
     });
     setPrice(price);
-
-  }
-  useEffect(()=>{
+  };
+  useEffect(() => {
     total();
-  },[total])
-  console.log("DEEFFF", del)
+  }, [total]);
+  console.log("DEEFFF", del);
 
   // console.log("DATA", getData)
   const [anchorEl, setAnchorEl] = useState(null);
@@ -89,7 +93,6 @@ const Header = () => {
               "aria-labelledby": "basic-button",
             }}
           >
-      
             <div
               className="card_details"
               style={{ width: "24rem", padding: 10 }}
@@ -116,10 +119,9 @@ const Header = () => {
                             </Link>
                           </td>
                           <td>
-                            {/* <p>{e.rname}</p> */}
                             <p>Price : {e.price}</p>
-                            <p>Quantity : {e.quantity}</p>
-                            {/* <p
+                            <p>Quantity : {e.qnty}</p>
+                            <p
                               style={{
                                 color: "red",
                                 fontSize: 20,
@@ -127,11 +129,9 @@ const Header = () => {
                               }}
                               onClick={() => del(e.id)}
                             >
-                              <Delete/>
-                            </p> */}
+                              <Delete />
+                            </p>
                           </td>
-
-                          
                         </tr>
                       </>
                     );
@@ -140,7 +140,6 @@ const Header = () => {
                 <p className="text-center">Total : {price}</p>
               </Table>
             </div>{" "}
-            
             <Close />
           </Menu>
 

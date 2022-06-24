@@ -24,7 +24,7 @@ const ProductDetail = () => {
    dispatch(ADD(e))
   }
   const products= useSelector((state)=>state.product.products);
-  const productsDetail= useSelector((state)=>state.product.productDetails);
+  // const productsDetail= useSelector((state)=>state.product.productDetails);
   // const getData = useSelector((state)=>state.product.additems)
   const {id} = useParams();
 console.log("id==>>", typeof(id))
@@ -34,7 +34,7 @@ console.log("producta", product)
   // console.log(useParams)
  
   const catData1 = products.slice(10, 16);
-  const ImageData = productsDetail.slice(0,1)
+  // const ImageData = productsDetail.slice(0,1)
     
    
   return (
@@ -151,7 +151,7 @@ console.log("producta", product)
           {catData1.map((data, key) => {
             return (
               <Col lg={2} md={3} sm={6}>
-                <Link to="/cart">
+                <Link to='/'>
                   <img className="same-product" src={data.img} alt=""></img>
                 </Link>
 
@@ -175,7 +175,7 @@ console.log("producta", product)
           {catData1.map((data, key) => {
             return (
               <Col lg={2} md={3} sm={6}>
-                <Link to="/cart">
+                <Link to = '/'>
                   <img className="same-product" src={data.img} alt=""></img>
                 </Link>
 

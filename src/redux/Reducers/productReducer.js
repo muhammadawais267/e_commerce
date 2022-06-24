@@ -1,5 +1,5 @@
 // import undoable from "redux-undo";
-import { GET_PRODUCTS, ERROR, ADD_TO_CART, REMOVE_CART_ITEM} from "../Actions/types";
+import { GET_PRODUCTS, ERROR, ADD_TO_CART} from "../Actions/types";
 
 
 import Cover from "../../assests/images/Mcover1.png";
@@ -227,27 +227,69 @@ const initialState = {
 };
 
 const productResucer = (state = initialState, action) => {
+  // eslint-disable-next-line no-unused-vars
   const { type, payload } = action;
   switch (type) {
     case GET_PRODUCTS:
       return {
         ...state,
       };
+      //Add items in cart
       case ADD_TO_CART:
-        return{
-          ...state,
-          additems:[...state.additems, payload]
-        }
+        const IteamIndex = state.additems.findIndex((iteam)=> iteam.id === action.payload.id);
+        if(IteamIndex >= 0){
+          state.additems[IteamIndex].qnty +=1
+          return {
+              ...state,
+              additems:[...state.additems]
+          }
+      }else{
+          const temp = {...action.payload,qnty:1}
+           return {
+              ...state,
+              additems: [...state.additems, temp]
+          }
+      }
+
+        
+        // return{
+        //   ...state,
+        //   additems:[...state.additems, payload]
+        // }
     case ERROR:
       return {
         ...state,
       };
-      case REMOVE_CART_ITEM:
-        const delData = state.additems.filter((el)=> el.id !== payload.id)
-        return{
-          ...state,
-          additems:delData
+      case "RMV_CART":
+        //Remove items from cart
+        const deldata = state.additems.filter((el)=>el.id !== action.payload); 
+        console.log("DFFFFF", deldata);
+
+        return {
+            ...state,
+            additems:deldata
         }
+        case "RMV_ONE":
+          //Remove individual items
+            const IteamIndex_dec = state.additems.findIndex((iteam)=> iteam.id === action.payload.id);
+   
+            if(state.additems[IteamIndex_dec].qnty >= 1){
+                const dltiteams = state.additems[IteamIndex_dec].qnty -= 1
+                console.log([...state.additems,dltiteams]);
+
+                return {
+                    ...state,
+                    additems:[...state.additems]
+                }
+            }else if(state.additems[IteamIndex_dec].qnty === 1 ){
+                const data = state.additems.filter((el)=>el.id !== action.payload);
+
+                return {
+                    ...state,
+                    additems:data
+                }
+            }
+    // eslint-disable-next-line no-fallthrough
     default:
       
       return state;

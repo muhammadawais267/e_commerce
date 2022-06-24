@@ -1,4 +1,4 @@
-import { GET_PRODUCTS, ADD_TO_CART, REMOVE_CART_ITEM } from "./types";
+import { GET_PRODUCTS, ADD_TO_CART } from "./types";
 
   
  
@@ -15,14 +15,19 @@ import { GET_PRODUCTS, ADD_TO_CART, REMOVE_CART_ITEM } from "./types";
       payload:item
     })
   };
-  export const delData = (id) =>(dispatch) => {
-    dispatch({
-      type:REMOVE_CART_ITEM,
-      payload:id
+  export const DLT = (id) => {
+    return {
+        type: "RMV_CART",
+        payload: id
+    }
+}
 
-    })
-  }
-
+  export const REMOVE = (iteam) => {
+    return {
+        type: "RMV_ONE",
+        payload: iteam
+    }
+}
   
   
   

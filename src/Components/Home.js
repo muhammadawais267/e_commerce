@@ -10,32 +10,20 @@ import Watch2 from "../assests/images/Watch1.jpg";
 import Watch3 from "../assests/images/Watch2.jpg";
 import Watch4 from "../assests/images/Watch3.jpg";
 import Cover4 from "../assests/images/Cover4.jpg";
-
 import Case2 from "../assests/images/Case2.png";
-
 import Mcase from "../assests/images/CasePic.jpg";
 import Watch from "../assests/images/watch.png";
 import { Link } from "react-router-dom";
-
-// import { Data } from "../data";
 import "./Home.css";
 import { useSelector } from "react-redux";
 
 const Home = () => {
-  const products =useSelector((state)=>state.product.products);
-  // const {id, price, del ,img,description} =products;
-  const stockData = products.slice(0,4)
-  const imgData = products.slice(4,8)
-  const catdata =  products.slice(8,12)
-  const catData1 = products.slice(12,16)
-  // console.log(products)
-  // console.log(Data);
-  // const stockData = Data.slice(0, 4);
-  // const imgData = Data.slice(4, 8);
-  // const catdata = Data.slice(8, 12);
-  // const catData1 = Data.slice(12, 16);
-  // console.log(stockData);
-
+  const products = useSelector((state) => state.product.products);
+  const stockData = products.slice(0, 4);
+  const imgData = products.slice(4, 8);
+  const catdata = products.slice(8, 12);
+  const catData1 = products.slice(12, 16);
+  
   return (
     <div>
       <Container className="showcase">
@@ -64,10 +52,11 @@ const Home = () => {
           <img src={Watch} alt=""></img>
         </div>
       </Container>
-<Container>
+      <Container>
+        <h1>Best Sellers</h1>
+      </Container>
 
-      <h1>Best Sellers</h1>
-</Container>
+      {/* First Row */}
       <Container className="container">
         <Row className="row-img">
           {stockData.map((data, key) => {
@@ -86,9 +75,9 @@ const Home = () => {
               </Col>
             );
           })}
-        
         </Row>
       </Container>
+      {/* Second Row */}
       <Container className="container">
         <Row className="row-img">
           {imgData.map((data, key) => {
@@ -107,15 +96,16 @@ const Home = () => {
               </Col>
             );
           })}
-        
         </Row>
       </Container>
+
+      {/* Third Row */}
       <Container>
         <Row className="row-img">
           {imgData.map((data, key) => {
             return (
               <Col lg={3} md={6} sm={12}>
-                 <Link to={`/product/${data.id}`}>
+                <Link to={`/product/${data.id}`}>
                   <img className="seller-img" src={data.img} alt=""></img>
                 </Link>
 
@@ -128,7 +118,6 @@ const Home = () => {
               </Col>
             );
           })}
-          
         </Row>
       </Container>
 
@@ -146,12 +135,14 @@ const Home = () => {
           <img className="img" src={Mcase} alt=""></img>
         </div>
       </Container>
+
+      {/* Fourth Row */}
       <Container>
         <Row className="row-img">
           {catdata.map((data, key) => {
             return (
               <Col lg={3} md={6} sm={12}>
-                 <Link to={`/product/${data.id}`}>
+                <Link to={`/product/${data.id}`}>
                   <img className="seller-img" src={data.img} alt=""></img>
                 </Link>
 
@@ -164,7 +155,6 @@ const Home = () => {
               </Col>
             );
           })}
-         
         </Row>
       </Container>
 
@@ -173,7 +163,7 @@ const Home = () => {
           {catData1.map((data, key) => {
             return (
               <Col lg={3} md={6} sm={12}>
-                 <Link to={`/product/${data.id}`}>
+                <Link to={`/product/${data.id}`}>
                   <img className="seller-img" src={data.img} alt=""></img>
                 </Link>
 
@@ -186,7 +176,6 @@ const Home = () => {
               </Col>
             );
           })}
-          
         </Row>
       </Container>
       <Container className="showcase">
@@ -207,7 +196,6 @@ const Home = () => {
         <Button className="btn-more">Show More</Button>
       </div>
       <Container>
-        
         <div className="img-row">
           <div className="img-col">
             <img className="cover-img" src={Watch2} alt=""></img>

@@ -8,8 +8,8 @@
 
 .quantity{
     display: flex;
-    height: 30px;
-    width: 30px;
+    height: 50px;
+    width: 50px;
 }
 .quantity input{
     width: 50px;
