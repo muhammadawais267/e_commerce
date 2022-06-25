@@ -406,3 +406,41 @@ color: #000;
     margin-top: 20px;
   vertical-align: top;
 }
+
+@media screen and (max-width: 580px) {
+    .img {
+     display: none;
+    
+    }
+    .showcase{
+        width: 100%;
+        /* height: 500px; */
+    }
+
+  }
+  @media screen and (max-width:1200px) {
+    .cases .custom-cases .case-img {
+    height: 130px;
+    width: 130px;
+    position: relative;
+    top: 50px;
+    
+    }
+    .cases .custom-cases h2{
+        font-size: 25px;
+    }
+
+  }
+  @media screen and (max-width: 1200px) {
+    .cases .watches .wach-img {
+     height: 120px;
+     width: 120px;
+     position: relative;
+     top: 50px;
+    
+    }
+    .cases .watches h2{
+        font-size: 25px;
+    }
+
+  }

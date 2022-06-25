@@ -3,6 +3,7 @@ import Header from "./Components/Header";
 import Home from "./Components/Home";
 import Footer from "./Components/Footer";
 import Apple from "./Components/Apple";
+import Userdetails from "./Components/Userdetails";
 // import "~react-image-gallery/styles/css/image-gallery.css";
 
 import ProductDetail from "./Components/ProductDetail";
@@ -18,6 +19,7 @@ function App() {
         <Route path="apple" element={<Apple />} />
         <Route path="cart" element ={<Cart/>} ></Route>
         <Route path="/product/:id" element ={<ProductDetail/>} ></Route>
+        <Route path="userdetails" element ={<Userdetails/>} ></Route>
       </Routes>
       <Footer/>
     </div>

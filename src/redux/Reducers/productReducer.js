@@ -32,8 +32,8 @@ const initialState = {
   products:[
     {
       id:uuidv4(),
-      price: "30$",
-      del: "101$",
+      price: 30,
+      del: 101,
       img: Case10,
       description: "Fancy Lather Case",
       qnty:0,
@@ -53,8 +53,8 @@ const initialState = {
     },
     {
       id:uuidv4(),
-      price: "40$",
-      del: "99$",
+      price: 40,
+      del: 99,
       img: Mcover2,
       description: "Mobile Case for Girls",
       qnty:0,
@@ -74,8 +74,8 @@ const initialState = {
     },
     {
       id:uuidv4(),
-      price: "20$",
-      del: "101$",
+      price: 20,
+      del: 101,
       img: Cover,
       description: "Fancy Lather Case",
       qnty:0,
@@ -95,8 +95,8 @@ const initialState = {
     },
     {
       id:uuidv4(),
-      price: "25$",
-      del: "101$",
+      price: 25,
+      del: 101,
       img: Mcover1,
       description: "Fancy Lather Case",
       qnty:0,
@@ -117,110 +117,266 @@ const initialState = {
   
     {
       id:uuidv4(),
-      price: "27$",
-      del: "99$",
+      price: 27,
+      del: 99,
       img: Case11,
       description: "Fancy Lather Case",
-      qnty:0
+      qnty:0,
+      thumbnails:[{
+        original:'/assests/images/Case13.png',
+          thumbnail:'/assests/images/Case13.png'
+      },
+      {
+        original:'/assests/images/Case13.png',
+          thumbnail:'/assests/images/Case13.png'
+      },
+      {
+        original:'/assests/images/Case13.png',
+          thumbnail:'/assests/images/Case13.png'
+      }
+  ]
     },
     {
       id:uuidv4(),
-      price: "35$",
-      del: "99$",
+      price: 35,
+      del: 99,
       img: Case12,
       description: "Fancy Lather Case",
-      qnty:0
+      qnty:0,
+      thumbnails:[{
+        original:'/assests/images/Case13.png',
+          thumbnail:'/assests/images/Case13.png'
+      },
+      {
+        original:'/assests/images/Case13.png',
+          thumbnail:'/assests/images/Case13.png'
+      },
+      {
+        original:'/assests/images/Case13.png',
+          thumbnail:'/assests/images/Case13.png'
+      }
+  ]
     },
     {
       id:uuidv4(),
-      price: "10$",
-      del: "131$",
+      price: 10,
+      del: 131,
       img: Mcover,
       description: "Joker Lather Case",
-      qnty:0
+      qnty:0,
+      thumbnails:[{
+        original:'/assests/images/Case13.png',
+          thumbnail:'/assests/images/Case13.png'
+      },
+      {
+        original:'/assests/images/Case13.png',
+          thumbnail:'/assests/images/Case13.png'
+      },
+      {
+        original:'/assests/images/Case13.png',
+          thumbnail:'/assests/images/Case13.png'
+      }
+  ]
     },
   
     {
       id:uuidv4(),
-      price: "15$",
-      del: "99$",
+      price: 15,
+      del: 99,
       img: Case1,
       description: "Lather Case Block Color",
       qnty:0
     },
     {
       id:uuidv4(),
-      price: "27$",
-      del: "99$",
+      price: 27,
+      del: 99,
       img: Case2,
       description: "Lather Case Block Color",
-      qnty:0
+      qnty:0,
+      thumbnails:[{
+        original:'/assests/images/Case13.png',
+          thumbnail:'/assests/images/Case13.png'
+      },
+      {
+        original:'/assests/images/Case13.png',
+          thumbnail:'/assests/images/Case13.png'
+      },
+      {
+        original:'/assests/images/Case13.png',
+          thumbnail:'/assests/images/Case13.png'
+      }
+  ]
     },
     {
       id:uuidv4(),
-      price: "10$",
-      del: "79$",
+      price: 10,
+      del: 79,
       img: Case3,
       description: "Lather Case Block Color",
-      qnty:0
+      qnty:0,
+      thumbnails:[{
+        original:'/assests/images/Case13.png',
+          thumbnail:'/assests/images/Case13.png'
+      },
+      {
+        original:'/assests/images/Case13.png',
+          thumbnail:'/assests/images/Case13.png'
+      },
+      {
+        original:'/assests/images/Case13.png',
+          thumbnail:'/assests/images/Case13.png'
+      }
+  ]
     },
     {
       id:uuidv4(),
-      price: "25$",
-      del: "180$",
+      price: 25,
+      del: 180,
       img: Case4,
       description: "Lather Case Block Color",
-      qnty:0
+      qnty:0,
+      thumbnails:[{
+        original:'/assests/images/Case13.png',
+          thumbnail:'/assests/images/Case13.png'
+      },
+      {
+        original:'/assests/images/Case13.png',
+          thumbnail:'/assests/images/Case13.png'
+      },
+      {
+        original:'/assests/images/Case13.png',
+          thumbnail:'/assests/images/Case13.png'
+      }
+  ]
     },
     {
       id:uuidv4(),
-      price: "25$",
-      del: "180$",
+      price: 25,
+      del: 180,
       img: Case5,
       description: "Lather Case Block Color",
-      qnty:0
+      qnty:0,
+      thumbnails:[{
+        original:'/assests/images/Case13.png',
+          thumbnail:'/assests/images/Case13.png'
+      },
+      {
+        original:'/assests/images/Case13.png',
+          thumbnail:'/assests/images/Case13.png'
+      },
+      {
+        original:'/assests/images/Case13.png',
+          thumbnail:'/assests/images/Case13.png'
+      }
+  ]
     },
     {
       id:uuidv4(),
-      price: "25$",
-      del: "180$",
+      price: 25,
+      del: 180,
       img: Case6,
       description: "Lather Case Block Color",
-      qnty:0
+      qnty:0,
+      thumbnails:[{
+        original:'/assests/images/Case13.png',
+          thumbnail:'/assests/images/Case13.png'
+      },
+      {
+        original:'/assests/images/Case13.png',
+          thumbnail:'/assests/images/Case13.png'
+      },
+      {
+        original:'/assests/images/Case13.png',
+          thumbnail:'/assests/images/Case13.png'
+      }
+  ]
     },
     {
       id:uuidv4(),
-      price: "25$",
-      del: "180$",
+      price: 25,
+      del: 180,
       img: Case7,
       description: "Lather Case Block Color",
-      qnty:0
+      qnty:0,
+      thumbnails:[{
+        original:'/assests/images/Case13.png',
+          thumbnail:'/assests/images/Case13.png'
+      },
+      {
+        original:'/assests/images/Case13.png',
+          thumbnail:'/assests/images/Case13.png'
+      },
+      {
+        original:'/assests/images/Case13.png',
+          thumbnail:'/assests/images/Case13.png'
+      }
+  ]
     },
     {
       id:uuidv4(),
-      price: "25$",
-      del: "180$",
+      price: 25,
+      del: 180,
       img: Case8,
       description: "Lather Case Block Color",
-      qnty:0
+      qnty:0,
+      thumbnails:[{
+        original:'/assests/images/Case13.png',
+          thumbnail:'/assests/images/Case13.png'
+      },
+      {
+        original:'/assests/images/Case13.png',
+          thumbnail:'/assests/images/Case13.png'
+      },
+      {
+        original:'/assests/images/Case13.png',
+          thumbnail:'/assests/images/Case13.png'
+      }
+  ]
     },
     {
       id:uuidv4(),
-      price: "25$",
-      del: "180$",
+      price: 25,
+      del: 180,
       img: Case9,
       description: "Lather Case Block Color",
-      qnty:0
+      qnty:0,
+      thumbnails:[{
+        original:'/assests/images/Case13.png',
+          thumbnail:'/assests/images/Case13.png'
+      },
+      {
+        original:'/assests/images/Case13.png',
+          thumbnail:'/assests/images/Case13.png'
+      },
+      {
+        original:'/assests/images/Case13.png',
+          thumbnail:'/assests/images/Case13.png'
+      }
+  ]
     },
   ],
  productDetails: [
     {
       id:uuidv4(),
       img: Case10,
-      price: "20$",
+      price: 20,
       description:"Fancy Lather Case",
       qnty:0,
-      del: "101$",
+      del: 101,
+      thumbnails:[{
+        original:'/assests/images/Case13.png',
+          thumbnail:'/assests/images/Case13.png'
+      },
+      {
+        original:'/assests/images/Case13.png',
+          thumbnail:'/assests/images/Case13.png'
+      },
+      {
+        original:'/assests/images/Case13.png',
+          thumbnail:'/assests/images/Case13.png'
+      }
+  ]
       
     },
   ]

@@ -28,9 +28,9 @@ const ProductDetail = () => {
   // const getData = useSelector((state)=>state.product.additems)
   const {id} = useParams();
 console.log("id==>>", typeof(id))
-console.log("id=sdjbsd=>>", products.map(product => typeof(product.id)))
+// console.log("id=sdjbsd=>>", products.map(product => typeof(product.id)))
 let product = products.filter(product => product.id === id)
-console.log("producta", product)
+// console.log("producta", product)
   // console.log(useParams)
  
   const catData1 = products.slice(10, 16);

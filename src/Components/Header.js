@@ -33,18 +33,18 @@ const Header = () => {
   };
 
   // Total Cost
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const total = () => {
+  
+  const total = ()=>{
     let price = 0;
-    getData.map((ele, k) => {
-      price = ele.price + price;
+    getData.map((ele,k)=>{
+        price = ele.price * ele.qnty + price
     });
     setPrice(price);
-  };
+};
   useEffect(() => {
     total();
   }, [total]);
-  console.log("DEEFFF", del);
+  
 
   // console.log("DATA", getData)
   const [anchorEl, setAnchorEl] = useState(null);
@@ -101,7 +101,7 @@ const Header = () => {
                 <thead>
                   <tr>
                     <th>Photo</th>
-                    <th>Restaurant Name</th>
+                    
                   </tr>
                 </thead>
                 <tbody>
@@ -137,10 +137,10 @@ const Header = () => {
                     );
                   })}
                 </tbody>
-                <p className="text-center">Total : {price}</p>
+                <p className="text-center">Total $: {price}</p>
               </Table>
             </div>{" "}
-            <Close />
+            <Close   onClick={handleClose} style = {{position:"absolute",top:2,right:20,cursor:'pointer', fontSize:23}}/>
           </Menu>
 
           <div className="heart">

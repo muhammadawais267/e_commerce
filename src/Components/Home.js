@@ -43,13 +43,13 @@ const Home = () => {
       <Container className="cases">
         <div className="custom-cases">
           <h2>Custom Cases</h2>
-          <img src={Case2} alt="" />
+          <img className="case-img" src={Case2} alt="" />
         </div>
 
         <div className="watches">
           {" "}
           <h2>Wrist Watches</h2>
-          <img src={Watch} alt=""></img>
+          <img className="wach-img" src={Watch} alt=""></img>
         </div>
       </Container>
       <Container>

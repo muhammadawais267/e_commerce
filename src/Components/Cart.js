@@ -1,16 +1,21 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import { Button, Container , Row,  Table} from 'react-bootstrap'
 import { Delete } from '@mui/icons-material'
 // import { productDetail } from '../data'
 import { useSelector, useDispatch } from 'react-redux'
 import { DLT ,ADD, REMOVE} from '../redux/Actions/product'
 import './Cart.css'
+import { Link } from 'react-router-dom'
 
 
 
 const Cart = () => {
   const getData = useSelector((state)=>state.product.additems);
   const dispatch = useDispatch();
+
+
+
+  const [price, setPrice] = useState(0);
   
 
   
@@ -45,11 +50,16 @@ const Cart = () => {
   // }
 
   
-// const [price, setPrice] = useState(0);
-// let totalAmount = ()=>{
-//   const amount= price+quantity;
-//   setPrice(amount)
-// }
+  const total = ()=>{
+    let price = 0;
+    getData.map((ele,k)=>{
+        price = ele.price * ele.qnty + price
+    });
+    setPrice(price);
+};
+  useEffect(() => {
+    total();
+  }, [total]);
   
   return (
     <div>
@@ -89,7 +99,7 @@ const Cart = () => {
                       <Button className='increase-qty' onClick={()=> send(e) }>+</Button>
                     </td>
                     <td>
-                      <p>300$</p>
+                      <p>{price}</p>
 
                     </td>
                     <td style={{color:'red'}} >
@@ -109,6 +119,16 @@ const Cart = () => {
   
         </Row>
           </Container>
+        
+          <Container>
+
+        <Link to ='/userdetails'>
+        <Button>Check Out</Button>
+        </Link>
+
+          </Container>
+
+      
           
       </div>
   )
