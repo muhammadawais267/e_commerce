@@ -3,7 +3,7 @@ import React, { useState } from "react";
 // import Button from 'react-bootstrap/Button';
 import { Badge, Menu } from "@mui/material";
 import { Delete } from "@mui/icons-material";
-import { Container, Table } from "react-bootstrap";
+import { Container, Table , Dropdown} from "react-bootstrap";
 import {
   Search,
   PermIdentity,
@@ -34,6 +34,7 @@ const Header = () => {
 
   // Total Cost
   
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const total = ()=>{
     let price = 0;
     getData.map((ele,k)=>{
@@ -55,6 +56,11 @@ const Header = () => {
   const handleClose = () => {
     setAnchorEl(null);
   };
+const [formData, setFormData] = useState({
+
+})
+
+
   return (
     <div>
       <Container className="container">
@@ -70,6 +76,15 @@ const Header = () => {
           <div className="ident">
             <PermIdentity />
           </div>
+          <Dropdown>
+                    <Dropdown.Toggle style = {{backgroundColor:'#fff', color:'#000', border:'none', marginRight:'15px'}}></Dropdown.Toggle>
+
+                    <Dropdown.Menu >
+                      <Dropdown.Item  href="#/action-1"><Link to="/" style={{listStyle:'none',textDecoration:'none'}}>Home</Link></Dropdown.Item>
+                      <Dropdown.Item href="#/action-2"><Link to="/dashboard">Dashboard</Link></Dropdown.Item>
+                      
+                    </Dropdown.Menu>
+                  </Dropdown>
 
           <div className="work">
             <Badge

@@ -29,7 +29,8 @@ const initialState = {
     
   
   ],
-  products:[
+  products: [],
+  productsdummy:[
     {
       id:uuidv4(),
       price: 30,
@@ -387,8 +388,10 @@ const productResucer = (state = initialState, action) => {
   const { type, payload } = action;
   switch (type) {
     case GET_PRODUCTS:
+      console.log("prodcus",payload )
       return {
         ...state,
+        products: payload
       };
       //Add items in cart
       case ADD_TO_CART:

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { Container, Row, Col, Dropdown, Button } from 'react-bootstrap';
 import { useParams } from 'react-router-dom'
 // import { productDetail, Data } from '../data';
@@ -13,33 +13,59 @@ import { useSelector , useDispatch} from 'react-redux';
 import {ADD} from '../redux/Actions/product'
 
 
+
 import './Detail.css'
+import axios from 'axios';
 
 
 
 const ProductDetail = () => {
-  
-  const dispatch = useDispatch();
-  const send =(e)=>{
-   dispatch(ADD(e))
+  const {id} = useParams();
+
+  const config = {
+    headers: {
+      "Content-Type": "application/json",
+      
+      "origin":"http://localhst:3000"
+    }
+  };
+  const getSingleProduct = async ()=>{
+    console.log("iddd", id)
+    const res = await axios.get(`http://localhost:5000/api/products/getsingleproduct/${id}`)
+    console.log("Product Data", res.data)
+
+
   }
-  const products= useSelector((state)=>state.product.products);
+
+  useEffect(() => {
+    getSingleProduct()
+    // dispatch(getSingleProduct())
+  }, [])
+  
+  // const dispatch = useDispatch();
+  // const send =(e)=>{
+  //   dispatch(ADD(e))
+  // }
+  // const products= useSelector((state)=>state.product.products);
   // const productsDetail= useSelector((state)=>state.product.productDetails);
   // const getData = useSelector((state)=>state.product.additems)
-  const {id} = useParams();
-console.log("id==>>", typeof(id))
+  
+// console.log("id==>>", id)
 // console.log("id=sdjbsd=>>", products.map(product => typeof(product.id)))
-let product = products.filter(product => product.id === id)
+// let product = products.filter(product => product.id === id)
 // console.log("producta", product)
   // console.log(useParams)
  
-  const catData1 = products.slice(10, 16);
+  // const catData1 = products.slice(10, 16);
   // const ImageData = productsDetail.slice(0,1)
-    
+
+
+  
    
   return (
     <div>
-         <Container >
+      Hello World
+         {/* <Container >
             <Row style = {{width:'100%'}}>
 
                 <Col lg={6} md={6} sm ={12}>
@@ -49,7 +75,7 @@ let product = products.filter(product => product.id === id)
                     showFullscreenButton = {false}
                     showBullets = {false}
                     items={product[0].thumbnails}/>
-                    {/* <img className='cat-img' src={images} alt = ""></img> */}
+                  
 
                 </Col>
 
@@ -191,7 +217,7 @@ let product = products.filter(product => product.id === id)
           
         </Row>
   
-</Container>
+</Container> */}
     </div>
   )
 }

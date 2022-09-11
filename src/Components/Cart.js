@@ -120,10 +120,10 @@ const Cart = () => {
         </Row>
           </Container>
         
-          <Container>
+          <Container className='check'>
 
         <Link to ='/userdetails'>
-        <Button>Check Out</Button>
+        <Button className = 'check-btn'>Check Out</Button>
         </Link>
 
           </Container>

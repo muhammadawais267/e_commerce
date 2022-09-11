@@ -1,6 +1,7 @@
 import { Button, Row, Col } from "react-bootstrap";
-import React from "react";
+import React, {useEffect} from "react";
 import { Container } from "react-bootstrap";
+import axios from "axios";
 import Cover from "../assests/images/Cover.jpg";
 import Cover1 from "../assests/images/Cover1.jpg";
 import Cover2 from "../assests/images/Cover2.jpg";
@@ -15,14 +16,28 @@ import Mcase from "../assests/images/CasePic.jpg";
 import Watch from "../assests/images/watch.png";
 import { Link } from "react-router-dom";
 import "./Home.css";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { getAllProducts } from "../redux/Actions/product";
 
 const Home = () => {
+  const dispatch = useDispatch()
   const products = useSelector((state) => state.product.products);
   const stockData = products.slice(0, 4);
   const imgData = products.slice(4, 8);
   const catdata = products.slice(8, 12);
   const catData1 = products.slice(12, 16);
+
+  console.log("produscc", products)
+
+  // const getData = async () => {
+  //   const dbProducts = await axios.get('http://localhost:5000/api/productdata')
+  //   console.log("producrs", dbProducts.data)
+  
+  // }
+      useEffect(() => {
+        dispatch(getAllProducts())
+      }, [])
+  
   
   return (
     <div>
@@ -62,8 +77,8 @@ const Home = () => {
           {stockData.map((data, key) => {
             return (
               <Col lg={3} md={6} sm={12}>
-                <Link to={`/product/${data.id}`}>
-                  <img className="seller-img" src={data.img} alt=""></img>
+                <Link to={`/product/${data._id}`}>
+                  <img className="seller-img" src={data.file && data.file} alt=""></img>
                 </Link>
 
                 <p className="text-precentage">-30%</p>
@@ -84,7 +99,7 @@ const Home = () => {
             return (
               <Col lg={3} md={6} sm={12}>
                 <Link to={`/product/${data.id}`}>
-                  <img className="seller-img" src={data.img} alt=""></img>
+                  <img className="seller-img" src={data.file} alt=""></img>
                 </Link>
 
                 <p className="text-precentage">-30%</p>
@@ -100,26 +115,7 @@ const Home = () => {
       </Container>
 
       {/* Third Row */}
-      <Container>
-        <Row className="row-img">
-          {imgData.map((data, key) => {
-            return (
-              <Col lg={3} md={6} sm={12}>
-                <Link to={`/product/${data.id}`}>
-                  <img className="seller-img" src={data.img} alt=""></img>
-                </Link>
-
-                <p className="text-precentage">-30%</p>
-                <div className="price">
-                  <h3>{data.price}</h3>
-                  <del>{data.del}</del>
-                </div>
-                <p className="cat-name">{data.description}</p>
-              </Col>
-            );
-          })}
-        </Row>
-      </Container>
+      
 
       <Container className="showcase">
         <div className="text">
@@ -143,7 +139,7 @@ const Home = () => {
             return (
               <Col lg={3} md={6} sm={12}>
                 <Link to={`/product/${data.id}`}>
-                  <img className="seller-img" src={data.img} alt=""></img>
+                  <img className="seller-img" src={data.file} alt=""></img>
                 </Link>
 
                 <p className="text-precentage">-30%</p>
@@ -164,7 +160,7 @@ const Home = () => {
             return (
               <Col lg={3} md={6} sm={12}>
                 <Link to={`/product/${data.id}`}>
-                  <img className="seller-img" src={data.img} alt=""></img>
+                  <img className="seller-img" src={data.file} alt=""></img>
                 </Link>
 
                 <p className="text-precentage">-30%</p>

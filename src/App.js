@@ -4,6 +4,7 @@ import Home from "./Components/Home";
 import Footer from "./Components/Footer";
 import Apple from "./Components/Apple";
 import Userdetails from "./Components/Userdetails";
+import Dashboard from "./Components/Dashboard";
 // import "~react-image-gallery/styles/css/image-gallery.css";
 
 import ProductDetail from "./Components/ProductDetail";
@@ -20,6 +21,7 @@ function App() {
         <Route path="cart" element ={<Cart/>} ></Route>
         <Route path="/product/:id" element ={<ProductDetail/>} ></Route>
         <Route path="userdetails" element ={<Userdetails/>} ></Route>
+        <Route path="dashboard" element = {<Dashboard/>}></Route>
       </Routes>
       <Footer/>
     </div>

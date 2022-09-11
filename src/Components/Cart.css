@@ -49,3 +49,17 @@
 .quantity .increase-qty:active{
     background-color: #ac480a;
 }
+
+.check .check-btn{
+    padding: 10px 30px;
+    background-color: #ff9858;
+    color:#fff;
+    border: none;
+}
+.check .check-btn:hover{
+    background-color: #ac480a;
+    color: #f8f8f8;
+}
+.btn-1{
+    padding: 10px 20px;
+}
